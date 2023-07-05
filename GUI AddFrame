@@ -1,0 +1,164 @@
+package GUI;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+public class AddFrame extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtEmpType;
+	private JTextField txtHourlySal;
+	private JTextField txtEdLevel;
+	private JTextField txtGender;
+	private JTextField txtPhoneNum;
+	private JTextField txtEmpName;
+	private JTextField txtEmpID;
+	private JTextField txtEmpWorkingHour;
+	private JTextField txtEmpTotalSal;
+	private JTextField txtEmpIsManager;
+	private JLabel lblMsg;
+	
+	public void clear()
+	{
+		txtEmpType.setText(null);
+		txtHourlySal.setText(null);
+		txtEdLevel.setText(null);
+		txtGender.setText(null);
+		txtPhoneNum.setText(null);
+		txtEmpName.setText(null);
+		txtEmpWorkingHour.setText(null);
+		txtEmpTotalSal.setText(null);
+		txtEmpIsManager.setText(null);
+	}
+	/**
+	 * Create the frame.
+	 */
+	public AddFrame(EmployeeFrame EmployeeFrame) {
+		setTitle("Add Frame");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 350, 248);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblEmpType = new JLabel();
+		lblEmpType.setText("Employee Department: ");
+		lblEmpType.setBounds(10, 14, 100, 14);
+		contentPane.add(lblEmpType);
+		
+		JLabel lblEmpName = new JLabel();
+		lblEmpName.setText("Employee Name & Surname: ");
+		lblEmpName.setBounds(10, 45, 100, 14);
+		contentPane.add(lblEmpName);
+		
+		JLabel lblEmpGender = new JLabel();
+		lblEmpGender.setText("Employee Gender: ");
+		lblEmpGender.setBounds(10, 73, 100, 14);
+		contentPane.add(lblEmpGender);
+		
+		JLabel lblEmpEdLevel = new JLabel();
+		lblEmpEdLevel.setText("Education Level");
+		lblEmpEdLevel.setBounds(10, 104, 100, 14);
+		contentPane.add(lblEmpEdLevel);
+		
+		JLabel lblEmpPhoneNum = new JLabel();
+		lblEmpPhoneNum.setText("Contact Number: ");
+		lblEmpPhoneNum.setBounds(10, 132, 100, 14);
+		contentPane.add(lblEmpPhoneNum);
+		
+		JLabel lblEmpHourlySal = new JLabel();
+		lblEmpHourlySal.setText("Hourly Salary: ");
+		lblEmpHourlySal.setBounds(10, 163, 100, 14);
+		contentPane.add(lblEmpHourlySal);
+		
+		JLabel lblEmpWorkingHour = new JLabel();
+		lblEmpWorkingHour.setText("Employee's Working Hour:");
+		lblEmpWorkingHour.setBounds(10, 191, 100, 14);
+		contentPane.add(lblEmpWorkingHour);
+		
+		JLabel lblEmpIsManager = new JLabel();
+		lblEmpIsManager.setText("Is Employee a Manager? (Yes/No)");
+		lblEmpIsManager.setBounds(10, 222, 100, 14);
+		contentPane.add(lblEmpIsManager);
+		
+		txtEmpType = new JTextField();
+		txtEmpType.setBounds(131, 11, 150, 20);
+		contentPane.add(txtEmpType);
+		
+		txtEmpName = new JTextField();
+		txtEmpName.setBounds(131, 42, 150, 20);
+		contentPane.add(txtEmpName);
+		
+		txtGender = new JTextField();
+		txtGender.setBounds(131, 70, 150, 20);
+		contentPane.add(txtGender);
+		
+		txtEdLevel = new JTextField();
+		txtEdLevel.setBounds(131, 101, 150, 20);
+		contentPane.add(txtEdLevel);
+		
+		txtPhoneNum = new JTextField();
+		txtPhoneNum.setBounds(131, 129, 150, 20);
+		contentPane.add(txtPhoneNum);
+		
+		txtHourlySal = new JTextField();
+		txtHourlySal.setBounds(131, 160, 150, 20);
+		contentPane.add(txtHourlySal);
+		
+		txtEmpWorkingHour = new JTextField();
+		txtEmpWorkingHour.setBounds(131, 188, 150, 20);
+		contentPane.add(txtEmpWorkingHour);
+		
+		txtEmpIsManager = new JTextField();
+		txtEmpIsManager.setBounds(131, 219, 150, 20);
+		contentPane.add(txtEmpIsManager);
+		
+		JButton btnAdd = new JButton();
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 if (txtEmpType.getText().isEmpty())
+					 lblMsg.setText("Please fill the department field!");
+				 else
+				 {
+					 String EmpName, EdLevel, Gender, EmpType;
+					 int phoneNum, workingHour;
+					 double hourlySal;
+					 boolean isManager;
+					 EmpType = txtEmpType.getText();
+					 EmpName = txtEmpName.getText();
+					 Gender = txtGender.getText();
+					 EdLevel = txtEdLevel.getText();
+					 phoneNum = Integer.parseInt(txtPhoneNum.getText());
+					 hourlySal = Double.parseDouble(txtHourlySal.getText());
+					 workingHour = Integer.parseInt(txtEmpWorkingHour.getText());
+				 }
+			}
+		});
+		btnAdd.setText("Add");
+		btnAdd.setBounds(38, 164, 85, 23);
+		contentPane.add(btnAdd);
+		
+		JButton btnClose = new JButton();
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnClose.setText("Close");
+		btnClose.setBounds(162, 164, 80, 23);
+		contentPane.add(btnClose);
+		
+		lblMsg = new JLabel("");
+		lblMsg.setBounds(10, 139, 314, 14);
+		contentPane.add(lblMsg);
+	}
+
+}

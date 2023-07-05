@@ -1,0 +1,235 @@
+package GUI;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+
+import Classes.Employee;
+import Classes.EmployeeSys;
+
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.JRadioButton;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.JScrollPane;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class EmployeeFrame extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextField textField_5;
+	private JTextField textField_6;
+	private JTextField textField_7;
+	private JTextField textField_8;
+	private JTextField textField_9;
+	private JTextField textField_10;
+	private JTextField textField_11;
+	private JTextField textField_12;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					EmployeeFrame frame = new EmployeeFrame();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public EmployeeFrame() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 802, 507);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel numEmploye = new JLabel("How many employee do you want to add ?");
+		numEmploye.setFont(new Font("Tahoma", Font.BOLD, 10));
+		numEmploye.setBounds(35, 11, 267, 20);
+		contentPane.add(numEmploye);
+		
+		JLabel type = new JLabel("Type of the department : ");
+		type.setFont(new Font("Tahoma", Font.BOLD, 10));
+		type.setBounds(35, 42, 267, 14);
+		contentPane.add(type);
+		
+		JLabel employeeName = new JLabel("Name surname:");
+		employeeName.setFont(new Font("Tahoma", Font.BOLD, 10));
+		employeeName.setBounds(35, 67, 253, 14);
+		contentPane.add(employeeName);
+		
+		JLabel genderEmp = new JLabel("Gender");
+		genderEmp.setFont(new Font("Tahoma", Font.BOLD, 10));
+		genderEmp.setBounds(35, 92, 194, 14);
+		contentPane.add(genderEmp);
+		
+		JLabel educationEmp = new JLabel("Education level (HS/Bachelor/Master/PhD):");
+		educationEmp.setFont(new Font("Tahoma", Font.BOLD, 9));
+		educationEmp.setBounds(35, 117, 300, 14);
+		contentPane.add(educationEmp);
+		
+		JLabel phoneEmp = new JLabel("Phone number:");
+		phoneEmp.setFont(new Font("Tahoma", Font.BOLD, 10));
+		phoneEmp.setBounds(35, 142, 122, 14);
+		contentPane.add(phoneEmp);
+		
+		JLabel workHours = new JLabel("Working Hours:");
+		workHours.setFont(new Font("Tahoma", Font.BOLD, 10));
+		workHours.setBounds(35, 167, 122, 14);
+		contentPane.add(workHours);
+		
+		JLabel empMan = new JLabel("Is employee a manager? (Check if YES) ");
+		empMan.setFont(new Font("Tahoma", Font.BOLD, 10));
+		empMan.setBounds(35, 192, 208, 14);
+		contentPane.add(empMan);
+		
+		JLabel typeSoft = new JLabel("Type of software :");
+		typeSoft.setFont(new Font("Tahoma", Font.BOLD, 10));
+		typeSoft.setBounds(35, 217, 122, 14);
+		contentPane.add(typeSoft);
+		
+		textField = new JTextField();
+		textField.setBounds(259, 14, 86, 14);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(259, 42, 86, 14);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(259, 67, 86, 14);
+		contentPane.add(textField_2);
+		textField_2.setColumns(10);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(259, 92, 86, 14);
+		contentPane.add(textField_3);
+		textField_3.setColumns(10);
+		
+		textField_4 = new JTextField();
+		textField_4.setBounds(259, 117, 86, 14);
+		contentPane.add(textField_4);
+		textField_4.setColumns(10);
+		
+		textField_5 = new JTextField();
+		textField_5.setBounds(259, 142, 86, 14);
+		contentPane.add(textField_5);
+		textField_5.setColumns(10);
+		
+		textField_6 = new JTextField();
+		textField_6.setBounds(259, 167, 86, 14);
+		contentPane.add(textField_6);
+		textField_6.setColumns(10);
+		
+		textField_7 = new JTextField();
+		textField_7.setColumns(10);
+		textField_7.setBounds(259, 217, 86, 14);
+		contentPane.add(textField_7);
+		
+		JRadioButton yesbt = new JRadioButton("YES");
+		yesbt.setFont(new Font("Tahoma", Font.BOLD, 10));
+		yesbt.setBounds(269, 190, 60, 19);
+		contentPane.add(yesbt);
+		
+		JPanel phonePan = new JPanel();
+		phonePan.setBounds(420, 45, 334, 136);
+		contentPane.add(phonePan);
+		phonePan.setLayout(null);
+		phonePan.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Phone Info", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		
+		JLabel phoneBra = new JLabel("Phone Brand : ");
+		phoneBra.setFont(new Font("Tahoma", Font.BOLD, 10));
+		phoneBra.setBounds(10, 28, 74, 14);
+		phonePan.add(phoneBra);
+		
+		JLabel memoryCell = new JLabel("Memory Cell : ");
+		memoryCell.setFont(new Font("Tahoma", Font.BOLD, 10));
+		memoryCell.setBounds(10, 59, 74, 14);
+		phonePan.add(memoryCell);
+		
+		textField_8 = new JTextField();
+		textField_8.setBounds(94, 56, 86, 20);
+		phonePan.add(textField_8);
+		textField_8.setColumns(10);
+		
+		textField_9 = new JTextField();
+		textField_9.setBounds(94, 25, 86, 20);
+		phonePan.add(textField_9);
+		textField_9.setColumns(10);
+		
+		JPanel comPan = new JPanel();
+		comPan.setBounds(420, 192, 334, 174);
+		contentPane.add(comPan);
+		comPan.setLayout(null);
+		comPan.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Computer Info", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		
+		JLabel compBra = new JLabel("Computer Brand : ");
+		compBra.setFont(new Font("Tahoma", Font.BOLD, 10));
+		compBra.setBounds(10, 31, 93, 14);
+		comPan.add(compBra);
+		
+		JLabel cpuMod = new JLabel("CPU Model : ");
+		cpuMod.setFont(new Font("Tahoma", Font.BOLD, 10));
+		cpuMod.setBounds(10, 75, 78, 14);
+		comPan.add(cpuMod);
+		
+		JLabel ssdCapa = new JLabel("SSD Capacity :");
+		ssdCapa.setFont(new Font("Tahoma", Font.BOLD, 10));
+		ssdCapa.setBounds(10, 122, 78, 14);
+		comPan.add(ssdCapa);
+		
+		textField_10 = new JTextField();
+		textField_10.setBounds(111, 29, 86, 17);
+		comPan.add(textField_10);
+		textField_10.setColumns(10);
+		
+		textField_11 = new JTextField();
+		textField_11.setBounds(111, 73, 86, 17);
+		comPan.add(textField_11);
+		textField_11.setColumns(10);
+		
+		textField_12 = new JTextField();
+		textField_12.setBounds(111, 120, 86, 17);
+		comPan.add(textField_12);
+		textField_12.setColumns(10);
+		
+		/*JButton btnDisplay = new JButton("Display");
+		btnDisplay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String result = EmployeeSys.getMediaList(cbType.getSelectedItem().toString());
+				taResult.setText(result);
+			}
+		});
+		*/
+		
+		
+	}
+}
